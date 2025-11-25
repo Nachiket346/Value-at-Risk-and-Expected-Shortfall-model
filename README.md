@@ -2,8 +2,7 @@
 A full market risk modeling project demonstrating VaR/ES, stress testing — designed as a proof-of-work for risk roles.
 
 SUMMARY
-This project develops an endntonend Market Risk analytics framework in Python, designed as a
-professional proofnofnwork for roles in Market Risk, Risk Management.
+This project develops an endntonend Market Risk analytics framework in Python, designed as aprofessional proof of work for roles in Market Risk, Risk Management.
 
 Core Components:
 Historical, Parametric (Gaussian), and Monte Carlo Value at Risk (VaR) and Expected Shortfall (ES) estimation across all methods • 
