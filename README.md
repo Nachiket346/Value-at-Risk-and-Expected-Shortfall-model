@@ -1,20 +1,50 @@
-# Value-at-Risk-and-Expecetd-Shortfall-model
-A full market risk modelling project demonstrating VaR/ES, stress testing — designed as a proof-of-work for risk roles.
+Objective:
+A complete Market Risk Measurement Framework that computes and analyzes Value-at-Risk (VaR) and Expected Shortfall (ES) using Historical, Parametric, and Monte Carlo methods. The project assesses portfolio vulnerability under severe market-crisis stress scenarios.
 
-SUMMARY
-This project develops an end to end Market Risk analytics framework in Python, designed as a professional proof of work for roles in Market Risk, Risk Management.
+Process
+1. Return & Portfolio Construction
+Loaded daily asset returns and formed a weighted portfolio.
+Computed mean return vector and covariance matrix for risk estimation.
 
-Core Components:
-Historical, Parametric (Gaussian), and Monte Carlo Value at Risk (VaR) and Expected Shortfall (ES) estimation across all methods • 
-Variables stress tested: mean shocks,volatility shocks, and correlation stress •
+2. VaR & ES Estimation
+Implemented three industry-standard risk models:
+Historical VaR/ES (non-parametric, raw empirical distribution)
+Parametric Gaussian VaR/ES (μ, σ, and z-scores)
+Monte Carlo Simulation (10,000+ multivariate scenarios)
 
-Risk Dashboard :
-Side by side VaR/ES comparison charts,Normal vs Crisis VaR visualizations Rolling VaR tracking,Fully modular plotting system (Matplotlib + Plotly).
+3. Crisis Stress Testing
+A realistic market-crisis regime was simulated with:
+Mean shock: −7% collapse in expected daily returns
+Volatility multiplier: 2.5× increase
+Correlation shift: +0.35 to reflect systemic contagion
+A new covariance matrix was generated and stress-scenario VaR/ES was computed.
+
+Results
+
+| Method                    | VaR 99%    | ES 99%     |
+| ------------------------- | ---------- | ---------- |
+| **Historical**            | **−2.41%** | **−4.51%** |
+| **Parametric (Gaussian)** | **−2.47%** | **−2.84%** |
+| **Monte Carlo**           | **−2.66%** | **−2.96%** |
+
+Interpretation:
+Historical ES is the most conservative due to real fat-tail behavior.
+Parametric ES is least conservative, as the normal distribution underestimates extreme losses.
+Monte Carlo VaR/ES lies between the two, giving a balanced tail estimate.
+
+Crisis Stress Test Results
+| Scenario                 | VaR 99%     | ES 99%      |
+| ------------------------ | ----------- | ----------- |
+| **Market Crisis Regime** | **−14.28%** | **−15.72%** |
+
+
+
+Crisis Impact:
+Tail losses worsen by 5–6× relative to normal market conditions.
+ES rises from ~3% to over 15%, indicating extreme tail-risk concentration.
+This confirms high systemic correlation + volatility spikes = severe downside risk.
 
 Technical Stack:Python,Yfinance, NumPy, Pandas, SciPy, Matplotlib, Jupyter Notebook.
-
-Outcome:
-This project demonstrates the ability to build a complete, production-style Market Risk modeling framework from scratch, covering VaR, Expected Shortfall, stress testing, Monte Carlo simulation. It showcases strong skills in quantitative modeling, financial risk analysis, and Python-based risk system development — aligned directly with the expectations of Market Risk Analyst roles in banks, investment firms, and risk departments.
 
 Future Enhancements:
 Stressed covariance VaR
