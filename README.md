@@ -10,7 +10,7 @@ Computed mean return vector and covariance matrix for risk estimation.
 Implemented three industry-standard risk models:
 Historical VaR/ES (non-parametric, raw empirical distribution)
 Parametric Gaussian VaR/ES (μ, σ, and z-scores)
-Monte Carlo Simulation (10,000+ multivariate scenarios)
+Monte Carlo Simulation (1000 multivariate scenarios)
 
 3. Crisis Stress Testing
 A realistic market-crisis regime was simulated with:
