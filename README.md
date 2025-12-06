@@ -28,9 +28,15 @@ Results
 | **Monte Carlo**           | **−2.66%** | **−2.96%** |
 
 Interpretation:
-Historical ES is the most conservative due to real fat-tail behavior.
-Parametric ES is least conservative, as the normal distribution underestimates extreme losses.
-Monte Carlo VaR/ES lies between the two, giving a balanced tail estimate.
+VAR:
+Monte Carlo VaR (−2.66%) is the most conservative, slightly higher in magnitude than historical and Gaussian, because simulations generate many extreme paths—even if they’re not fully fat-tailed.
+Historical VaR (−2.41%) is based on real observed losses. It reflects actual market history but may miss hypothetical extreme shocks not present in the dataset.
+Gaussian VaR (−2.47%) assumes returns are normally distributed.it often underestimates tail losses, but in this  case it is close to historical because the sample volatility likely matches the Gaussian assumption reasonably well.
+
+Expected Shortfall:
+Historical ES (−4.51%) is the most conservative because it uses actual return distributions, which naturally contain fat tails, volatility clustering, and crisis-day losses. since it does not assume normality, it fully captures extreme downside moves observed in real markets.
+Parametric ES assumes returns follow a normal distribution, so tail losses are smooth and symmetric. Because real markets have fat tails and negative skew, Parametric ES typically underestimates extreme losses. That’s why it is much less severe than historical ES.
+Monte Carlo ES generates thousands of simulated return paths using modelled volatility and correlation, allowing more extreme scenarios than the Gaussian approach. however, unless fat-tailed distributions are used, it still underestimates real crisis-level losses, giving an ES of −2.96%—more conservative than parametric but far below the historical ES.
 
 Crisis Stress Test Results
 | Scenario                 | VaR 99%     | ES 99%      |
