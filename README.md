@@ -30,12 +30,16 @@ Results
 Interpretation:
 VAR:
 Monte Carlo VaR (−2.66%) is the most conservative, slightly higher in magnitude than historical and Gaussian, because simulations generate many extreme paths—even if they’re not fully fat-tailed.
+
 Historical VaR (−2.41%) is based on real observed losses. It reflects actual market history but may miss hypothetical extreme shocks not present in the dataset.
-Gaussian VaR (−2.47%) assumes returns are normally distributed.it often underestimates tail losses, but in this  case it is close to historical because the sample volatility likely matches the Gaussian assumption reasonably well.
+
+Parametric VaR (−2.47%) assumes returns are normally distributed.it often underestimates tail losses, but in this  case it is close to historical because the sample volatility likely matches the Gaussian assumption reasonably well.
 
 Expected Shortfall:
 Historical ES (−4.51%) is the most conservative because it uses actual return distributions, which naturally contain fat tails, volatility clustering, and crisis-day losses. since it does not assume normality, it fully captures extreme downside moves observed in real markets.
+
 Parametric ES assumes returns follow a normal distribution, so tail losses are smooth and symmetric. Because real markets have fat tails and negative skew, Parametric ES typically underestimates extreme losses. That’s why it is much less severe than historical ES.
+
 Monte Carlo ES generates thousands of simulated return paths using modelled volatility and correlation, allowing more extreme scenarios than the Gaussian approach. however, unless fat-tailed distributions are used, it still underestimates real crisis-level losses, giving an ES of −2.96%—more conservative than parametric but far below the historical ES.
 
 Crisis Stress Test Results
@@ -43,12 +47,12 @@ Crisis Stress Test Results
 | ------------------------ | ----------- | ----------- |
 | **Market Crisis Regime** | **−14.28%** | **−15.72%** |
 
+Intepretation:
+Crisis VaR 99% widened to −14.28%, roughly 5–6× higher than normal-market VaR (−2.41% to −2.66%), indicating a sharp jump in potential worst-day losses under a market-crisis regime.
+The surge in crisis VaR reflects volatility spikes and correlation breakdowns, showing how systemic stress can multiply downside risk far beyond calm-market estimates.
 
-
-Crisis Impact:
-Tail losses worsen by 5–6× relative to normal market conditions.
-ES rises from ~3% to over 15%, indicating extreme tail-risk concentration.
-This confirms high systemic correlation + volatility spikes = severe downside risk.
+Crisis ES 99% deteriorated to −15.72%, about 4–6× more severe than normal-market ES (−2.84% to −4.51%), highlighting the extreme clustering of losses deep in the tail.
+ES increases more than VaR during crisis conditions because it averages all tail events, capturing compounding fat-tail shocks that VaR misses and revealing the full depth of crisis-driven risk.
 
 Technical Stack:Python,Yfinance, NumPy, Pandas, SciPy, Matplotlib, Jupyter Notebook.
 
